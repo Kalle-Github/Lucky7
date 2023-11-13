@@ -7,12 +7,15 @@ public class Lucky7 {
         Scanner in = new Scanner(System.in);
         Random random = new Random();
         int luku, luku2, luku3;
-        int raha = 5;
+        int raha;
         String vastaus;
         int seiskat;
 
+        System.out.println("Kuinka paljon rahaa haluat syöttää");
+        raha = Integer.parseInt(in.nextLine());
+
         do {
-            System.out.println("Sinulla on " + raha + " € Peli maksaa 1€");
+            System.out.println("Sinulla on " + raha + " € Peli maksaa 1€, paina *enter* pelataksesi");
 
             vastaus = in.nextLine();
 
@@ -31,7 +34,7 @@ public class Lucky7 {
                 }
 
                 seiskat = laskeSeiskat(luku, luku2, luku3);
-if (seiskat == 1) {
+                if (seiskat == 1) {
                     raha += 3;
                     System.out.println("Sait yhden seiskan, voitat 3€");
                 } else if (seiskat == 2) {
@@ -52,6 +55,8 @@ if (seiskat == 1) {
             System.out.println("Haluatko pelata uudestaan? Paina enter pelataksesi tai e peruuttaaksesi");
 
         } while (raha > 0);
+
+        System.out.println("Peli päättyi. Voittosi yhteensä: " + (5 - raha) + "€");
     }
 
     private static int laskeSeiskat(int luku1, int luku2, int luku3) {
